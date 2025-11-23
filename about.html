@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Sameena and her passion for North Indian cooking and recipe sharing.">
+
+    <title>About - Sameena's Kitchen</title>
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍛</text></svg>">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/main.css">
+
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, rgba(230, 126, 34, 0.1), rgba(192, 57, 43, 0.1));
+            padding: var(--spacing-3xl) 0;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            width: 200px;
+            height: 200px;
+            border-radius: var(--radius-full);
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            margin: 0 auto var(--spacing-xl);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .story-section {
+            background-color: var(--color-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .story-section h2 {
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .story-section p {
+            font-size: var(--font-size-lg);
+            line-height: 1.8;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-2xl);
+        }
+
+        .value-card {
+            background-color: var(--color-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: all var(--transition-base);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .value-card h3 {
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .value-card p {
+            color: var(--color-text-secondary);
+            font-size: var(--font-size-sm);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: var(--color-white);
+            padding: var(--spacing-2xl);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin-top: var(--spacing-3xl);
+        }
+
+        .cta-section h2 {
+            color: var(--color-white);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .cta-section p {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-xl);
+            opacity: 0.95;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <span>🍛</span>
+                <span>Sameena's Kitchen</span>
+            </a>
+
+            <button class="navbar-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="navbar-menu">
+                <a href="index.html">Home</a>
+                <a href="recipes.html">Recipes</a>
+                <a href="about.html">About</a>
+                <a href="https://www.instagram.com/mums_wonderlife/" target="_blank" rel="noopener">Instagram</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="about-image">👩‍🍳</div>
+            <h1>Hi, I'm Sameena!</h1>
+            <p class="text-secondary"
+                style="font-size: var(--font-size-xl); margin-top: var(--spacing-md); max-width: 600px; margin-left: auto; margin-right: auto;">
+                Food creator, recipe developer, and passionate home cook sharing the flavors of North India
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section">
+        <div class="container about-content">
+
+            <!-- My Story -->
+            <div class="story-section">
+                <h2>My Story</h2>
+                <p>
+                    Welcome to my kitchen! I'm Sameena, and cooking has been my passion for as long as I can remember.
+                    Growing up in a North Indian household, I was surrounded by the aromatic spices and comforting
+                    flavors
+                    that define our cuisine.
+                </p>
+                <p>
+                    What started as helping my mother in the kitchen has evolved into a journey of preserving and
+                    sharing
+                    traditional recipes with a modern twist. I believe that good food doesn't have to be complicated –
+                    it just needs love, the right ingredients, and clear instructions.
+                </p>
+                <p>
+                    Through my Instagram Reels and this website, I share easy-to-follow recipes that fit into your daily
+                    routine. Whether you're a beginner or an experienced cook, my goal is to make North Indian cooking
+                    accessible and enjoyable for everyone.
+                </p>
+            </div>
+
+            <!-- What I Believe In -->
+            <div class="story-section">
+                <h2>What I Believe In</h2>
+                <div class="values-grid">
+
+                    <div class="value-card">
+                        <div class="value-icon">🏠</div>
+                        <h3>Home Cooking</h3>
+                        <p>Every recipe is tested in my home kitchen, ensuring they work in real-world conditions.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">📖</div>
+                        <h3>Simplicity</h3>
+                        <p>Clear instructions and easily available ingredients make cooking stress-free and fun.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">🌶️</div>
+                        <h3>Authenticity</h3>
+                        <p>Traditional flavors and techniques passed down through generations, adapted for today.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">❤️</div>
+                        <h3>Community</h3>
+                        <p>Building a community of food lovers who share tips, variations, and their cooking
+                            experiences.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- What You'll Find Here -->
+            <div class="story-section">
+                <h2>What You'll Find Here</h2>
+                <p>
+                    This website is your companion to my Instagram Reels. While my videos give you a quick visual guide,
+                    here you'll find:
+                </p>
+                <ul
+                    style="list-style: disc; margin-left: var(--spacing-xl); color: var(--color-text-secondary); font-size: var(--font-size-lg); line-height: 2;">
+                    <li>Detailed ingredient lists with measurements</li>
+                    <li>Step-by-step written instructions</li>
+                    <li>Cooking tips and variations</li>
+                    <li>Prep and cook times for planning your meals</li>
+                    <li>Difficulty levels to help you choose recipes</li>
+                </ul>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h2>Let's Cook Together!</h2>
+                <p>
+                    Join me on Instagram for quick recipe videos, cooking tips, and behind-the-scenes content.
+                    Then come back here for the full recipe details!
+                </p>
+                <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
+                    <a href="https://www.instagram.com/mums_wonderlife/" target="_blank" rel="noopener"
+                        class="btn btn-secondary" style="background: var(--color-white); color: var(--color-primary);">
+                        📷 Follow on Instagram
+                    </a>
+                    <a href="recipes.html" class="btn btn-outline"
+                        style="border-color: var(--color-white); color: var(--color-white);">
+                        🍛 Browse Recipes
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sameena's Kitchen</h3>
+                    <p>Bringing authentic North Indian flavors to your home, one recipe at a time.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/mums_wonderlife/" target="_blank" rel="noopener"
+                            aria-label="Instagram">📷</a>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">📺</a>
+                        <a href="mailto:sameena@example.com" aria-label="Email">✉️</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="recipes.html">All Recipes</a></p>
+                    <p><a href="about.html">About Me</a></p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Categories</h3>
+                    <p><a href="recipes.html?category=breakfast">Breakfast</a></p>
+                    <p><a href="recipes.html?category=lunch">Lunch</a></p>
+                    <p><a href="recipes.html?category=dinner">Dinner</a></p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sameena's Kitchen. Made with ❤️ for food lovers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

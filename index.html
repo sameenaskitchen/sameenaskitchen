@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Discover authentic North Indian daily recipes by Sameena. Easy, delicious recipes perfect for everyday cooking.">
+  <meta name="keywords" content="North Indian recipes, Indian food, daily recipes, cooking, Sameena recipes">
+  <meta name="author" content="Sameena">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Sameena's North Indian Recipes">
+  <meta property="og:description"
+    content="Discover authentic North Indian daily recipes. Easy, delicious recipes perfect for everyday cooking.">
+  <meta property="og:type" content="website">
+
+  <title>Sameena's North Indian Recipes - Home</title>
+
+  <!-- Favicon -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍛</text></svg>">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <span>🍛</span>
+        <span>Sameena's Kitchen</span>
+      </a>
+
+      <button class="navbar-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="navbar-menu">
+        <a href="index.html">Home</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="about.html">About</a>
+        <a href="https://www.instagram.com/mums_wonderlife/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">Welcome to Sameena's Kitchen</h1>
+      <p class="hero-subtitle">Authentic North Indian Recipes for Your Daily Meals</p>
+      <p class="text-secondary" style="max-width: 600px; margin: 0 auto var(--spacing-xl);">
+        Discover easy, delicious recipes that bring the flavors of North India to your home.
+        From breakfast parathas to comforting dal, find your next favorite dish here!
+      </p>
+      <div class="hero-cta">
+        <a href="recipes.html" class="btn btn-primary">Explore Recipes</a>
+        <a href="about.html" class="btn btn-outline">About Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Recipes Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Featured Recipes</h2>
+      <div id="featured-recipes" class="grid grid-3">
+        <!-- Recipes will be loaded here by JavaScript -->
+      </div>
+      <div style="text-align: center; margin-top: var(--spacing-2xl);">
+        <a href="recipes.html" class="btn btn-primary">View All Recipes</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="section" style="background-color: var(--color-white);">
+    <div class="container">
+      <h2 class="section-title">Recipe Categories</h2>
+      <div class="grid grid-3">
+        <a href="recipes.html?category=breakfast" class="card" style="text-align: center;">
+          <div style="font-size: 4rem; padding: var(--spacing-xl) 0;">🥞</div>
+          <div class="card-content">
+            <h3 class="card-title">Breakfast</h3>
+            <p class="card-description">Start your day with delicious parathas and more</p>
+          </div>
+        </a>
+
+        <a href="recipes.html?category=lunch" class="card" style="text-align: center;">
+          <div style="font-size: 4rem; padding: var(--spacing-xl) 0;">🍛</div>
+          <div class="card-content">
+            <h3 class="card-title">Lunch</h3>
+            <p class="card-description">Hearty curries and dal for your afternoon meal</p>
+          </div>
+        </a>
+
+        <a href="recipes.html?category=dinner" class="card" style="text-align: center;">
+          <div style="font-size: 4rem; padding: var(--spacing-xl) 0;">🍚</div>
+          <div class="card-content">
+            <h3 class="card-title">Dinner</h3>
+            <p class="card-description">Satisfying dishes to end your day perfectly</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <h2 class="section-title">About Sameena's Kitchen</h2>
+        <p
+          style="font-size: var(--font-size-lg); color: var(--color-text-secondary); margin-bottom: var(--spacing-lg);">
+          Hi! I'm Sameena, and I create easy North Indian recipes for everyday cooking.
+          My passion is making traditional recipes accessible and simple, perfect for busy home cooks.
+        </p>
+        <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-xl);">
+          I share quick recipe videos on Instagram, and this website is your go-to resource
+          for detailed ingredients and step-by-step instructions. Let's cook together!
+        </p>
+        <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
+          <a href="about.html" class="btn btn-primary">Learn More</a>
+          <a href="https://www.instagram.com/mums_wonderlife/" target="_blank" rel="noopener"
+            class="btn btn-secondary">Follow on Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Sameena's Kitchen</h3>
+          <p>Bringing authentic North Indian flavors to your home, one recipe at a time.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/mums_wonderlife/" target="_blank" rel="noopener"
+              aria-label="Instagram">📷</a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">📺</a>
+            <a href="mailto:sameena@example.com" aria-label="Email">✉️</a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <p><a href="index.html">Home</a></p>
+          <p><a href="recipes.html">All Recipes</a></p>
+          <p><a href="about.html">About Me</a></p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Categories</h3>
+          <p><a href="recipes.html?category=breakfast">Breakfast</a></p>
+          <p><a href="recipes.html?category=lunch">Lunch</a></p>
+          <p><a href="recipes.html?category=dinner">Dinner</a></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Sameena's Kitchen. Made with ❤️ for food lovers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/recipes.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Load featured recipes on homepage
+    document.addEventListener('DOMContentLoaded', function () {
+      const featuredRecipes = recipes.slice(0, 3); // Show first 3 recipes
+      renderRecipeCards(featuredRecipes, 'featured-recipes');
+    });
+  </script>
+</body>
+
+</html>

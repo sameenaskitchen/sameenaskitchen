@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Browse all North Indian recipes by Sameena. Filter by category and search for your favorite dishes.">
+    <meta name="keywords" content="North Indian recipes, recipe collection, Indian cooking, Sameena">
+
+    <title>All Recipes - Sameena's Kitchen</title>
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍛</text></svg>">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/main.css">
+
+    <style>
+        /* Additional styles for recipes page */
+        .recipes-header {
+            background: linear-gradient(135deg, rgba(230, 126, 34, 0.1), rgba(192, 57, 43, 0.1));
+            padding: var(--spacing-2xl) 0;
+            text-align: center;
+        }
+
+        .filter-section {
+            background-color: var(--color-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .filter-controls {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: var(--spacing-md) var(--spacing-lg);
+            border: 2px solid var(--color-beige);
+            border-radius: var(--radius-lg);
+            font-size: var(--font-size-base);
+            font-family: var(--font-body);
+            transition: border-color var(--transition-base);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .category-filters {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: var(--spacing-sm) var(--spacing-lg);
+            background-color: var(--color-beige);
+            color: var(--color-text-primary);
+            border-radius: var(--radius-full);
+            font-weight: 500;
+            font-size: var(--font-size-sm);
+            transition: all var(--transition-base);
+            cursor: pointer;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            color: var(--color-white);
+            transform: translateY(-2px);
+        }
+
+        .recipe-count {
+            text-align: center;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-lg);
+            font-size: var(--font-size-lg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <span>🍛</span>
+                <span>Sameena's Kitchen</span>
+            </a>
+
+            <button class="navbar-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="navbar-menu">
+                <a href="index.html">Home</a>
+                <a href="recipes.html">Recipes</a>
+                <a href="about.html">About</a>
+                <a href="https://www.instagram.com/mums_wonderlife/" target="_blank" rel="noopener">Instagram</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="recipes-header">
+        <div class="container">
+            <h1>All Recipes</h1>
+            <p class="text-secondary" style="font-size: var(--font-size-lg); margin-top: var(--spacing-md);">
+                Explore my collection of authentic North Indian recipes
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section">
+        <div class="container">
+
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <div class="filter-controls">
+                    <!-- Search Box -->
+                    <div class="search-box">
+                        <input type="text" id="search-input" placeholder="🔍 Search recipes, ingredients..."
+                            aria-label="Search recipes">
+                    </div>
+
+                    <!-- Category Filters -->
+                    <div class="category-filters">
+                        <button class="category-btn active" data-category="all">All</button>
+                        <button class="category-btn" data-category="breakfast">Breakfast</button>
+                        <button class="category-btn" data-category="lunch">Lunch</button>
+                        <button class="category-btn" data-category="dinner">Dinner</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Count -->
+            <div class="recipe-count" id="recipe-count">
+                Showing <strong id="count-number">0</strong> recipes
+            </div>
+
+            <!-- Recipes Grid -->
+            <div id="recipes-grid" class="grid grid-3">
+                <!-- Recipes will be loaded here by JavaScript -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sameena's Kitchen</h3>
+                    <p>Bringing authentic North Indian flavors to your home, one recipe at a time.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/mums_wonderlife/" target="_blank" rel="noopener"
+                            aria-label="Instagram">📷</a>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">📺</a>
+                        <a href="mailto:sameena@example.com" aria-label="Email">✉️</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="recipes.html">All Recipes</a></p>
+                    <p><a href="about.html">About Me</a></p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Categories</h3>
+                    <p><a href="recipes.html?category=breakfast">Breakfast</a></p>
+                    <p><a href="recipes.html?category=lunch">Lunch</a></p>
+                    <p><a href="recipes.html?category=dinner">Dinner</a></p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sameena's Kitchen. Made with ❤️ for food lovers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/recipes.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Recipe filtering and search functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            let currentCategory = 'all';
+            let currentSearch = '';
+
+            // Get URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoryParam = urlParams.get('category');
+
+            // Set initial category from URL
+            if (categoryParam) {
+                currentCategory = categoryParam;
+                document.querySelector(`.category-btn[data-category="${categoryParam}"]`)?.classList.add('active');
+                document.querySelector('.category-btn[data-category="all"]')?.classList.remove('active');
+            }
+
+            // Initial render
+            updateRecipes();
+
+            // Category filter buttons
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Update active state
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Update category
+                    currentCategory = this.dataset.category;
+
+                    // Update URL
+                    const newUrl = currentCategory === 'all'
+                        ? 'recipes.html'
+                        : `recipes.html?category=${currentCategory}`;
+                    window.history.pushState({}, '', newUrl);
+
+                    // Update recipes
+                    updateRecipes();
+                });
+            });
+
+            // Search input
+            const searchInput = document.getElementById('search-input');
+            searchInput.addEventListener('input', function () {
+                currentSearch = this.value;
+                updateRecipes();
+            });
+
+            // Function to update recipes display
+            function updateRecipes() {
+                const filteredRecipes = filterRecipes(currentCategory, currentSearch);
+                renderRecipeCards(filteredRecipes, 'recipes-grid');
+
+                // Update count
+                document.getElementById('count-number').textContent = filteredRecipes.length;
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View detailed recipe with ingredients and step-by-step instructions.">
+
+    <title>Recipe - Sameena's Kitchen</title>
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍛</text></svg>">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/main.css">
+
+    <style>
+        /* Recipe Detail Styles */
+        .recipe-hero {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .recipe-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+        }
+
+        .recipe-hero-content {
+            position: relative;
+            z-index: 1;
+            color: var(--color-white);
+            padding: var(--spacing-2xl);
+            width: 100%;
+        }
+
+        .recipe-hero-content h1 {
+            color: var(--color-white);
+            font-size: var(--font-size-4xl);
+            margin-bottom: var(--spacing-md);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .recipe-hero-content p {
+            font-size: var(--font-size-lg);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .recipe-meta-bar {
+            background-color: var(--color-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .recipe-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .recipe-meta-item {
+            padding: var(--spacing-md);
+        }
+
+        .recipe-meta-item .icon {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .recipe-meta-item .label {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .recipe-meta-item .value {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .recipe-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: var(--spacing-2xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .ingredients-section,
+        .instructions-section {
+            background-color: var(--color-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .ingredients-section h2,
+        .instructions-section h2 {
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 2px solid var(--color-beige);
+        }
+
+        .ingredients-list {
+            list-style: none;
+        }
+
+        .ingredients-list li {
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            background-color: var(--color-cream);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            transition: all var(--transition-base);
+        }
+
+        .ingredients-list li:hover {
+            background-color: var(--color-beige);
+            transform: translateX(5px);
+        }
+
+        .ingredient-bullet {
+            color: var(--color-accent);
+            font-weight: bold;
+            font-size: var(--font-size-lg);
+        }
+
+        .instructions-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .instructions-list li {
+            counter-increment: step-counter;
+            margin-bottom: var(--spacing-xl);
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        .instruction-number {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            color: var(--color-white);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: var(--font-size-lg);
+        }
+
+        .instructions-list li p {
+            flex: 1;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            margin-top: var(--spacing-xl);
+        }
+
+        .instagram-section {
+            background: linear-gradient(135deg, rgba(230, 126, 34, 0.1), rgba(192, 57, 43, 0.1));
+            padding: var(--spacing-2xl);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin-top: var(--spacing-2xl);
+        }
+
+        .instagram-section h3 {
+            margin-bottom: var(--spacing-md);
+        }
+
+        @media (max-width: 768px) {
+            .recipe-hero {
+                height: 300px;
+            }
+
+            .recipe-content {
+                grid-template-columns: 1fr;
+            }
+
+            .recipe-hero-content h1 {
+                font-size: var(--font-size-3xl);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <span>🍛</span>
+                <span>Sameena's Kitchen</span>
+            </a>
+
+            <button class="navbar-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="navbar-menu">
+                <a href="index.html">Home</a>
+                <a href="recipes.html">Recipes</a>
+                <a href="about.html">About</a>
+                <a href="https://www.instagram.com/mums_wonderlife/" target="_blank" rel="noopener">Instagram</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Recipe Hero -->
+    <div class="recipe-hero">
+        <div class="recipe-hero-content container">
+            <h1 id="recipe-name">Recipe Name</h1>
+            <p id="recipe-description">Recipe description</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Recipe Meta Information -->
+        <div class="recipe-meta-bar">
+            <div class="recipe-meta-grid">
+                <div class="recipe-meta-item">
+                    <div class="icon">⏱️</div>
+                    <div class="label">Prep Time</div>
+                    <div class="value" id="recipe-prep-time">-</div>
+                </div>
+
+                <div class="recipe-meta-item">
+                    <div class="icon">🍳</div>
+                    <div class="label">Cook Time</div>
+                    <div class="value" id="recipe-cook-time">-</div>
+                </div>
+
+                <div class="recipe-meta-item">
+                    <div class="icon">🍽️</div>
+                    <div class="label">Servings</div>
+                    <div class="value" id="recipe-servings">-</div>
+                </div>
+
+                <div class="recipe-meta-item">
+                    <div class="icon">📊</div>
+                    <div class="label">Difficulty</div>
+                    <div class="value">
+                        <span id="recipe-difficulty" class="badge">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe Content -->
+        <div class="recipe-content">
+
+            <!-- Ingredients -->
+            <div class="ingredients-section">
+                <h2>Ingredients</h2>
+                <ul id="ingredients-list" class="ingredients-list">
+                    <!-- Ingredients will be loaded here -->
+                </ul>
+            </div>
+
+            <!-- Instructions -->
+            <div class="instructions-section">
+                <h2>Instructions</h2>
+                <ol id="instructions-list" class="instructions-list">
+                    <!-- Instructions will be loaded here -->
+                </ol>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button onclick="printRecipe()" class="btn btn-outline">
+                        🖨️ Print Recipe
+                    </button>
+                    <button
+                        onclick="shareRecipe(document.getElementById('recipe-name').textContent, window.location.href)"
+                        class="btn btn-outline">
+                        📤 Share
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Instagram Reel Section -->
+        <div id="instagram-reel-section" class="instagram-section" style="display: none;">
+            <h3>Watch the Recipe Video</h3>
+            <p style="margin-bottom: var(--spacing-lg); color: var(--color-text-secondary);">
+                See this recipe come to life in my Instagram Reel!
+            </p>
+            <a id="instagram-reel-link" href="#" target="_blank" rel="noopener" class="btn btn-secondary">
+                📷 Watch on Instagram
+            </a>
+        </div>
+
+        <!-- Back to Recipes -->
+        <div style="text-align: center; margin: var(--spacing-3xl) 0;">
+            <a href="recipes.html" class="btn btn-primary">← Back to All Recipes</a>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sameena's Kitchen</h3>
+                    <p>Bringing authentic North Indian flavors to your home, one recipe at a time.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/mums_wonderlife/" target="_blank" rel="noopener"
+                            aria-label="Instagram">📷</a>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">📺</a>
+                        <a href="mailto:sameena@example.com" aria-label="Email">✉️</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="recipes.html">All Recipes</a></p>
+                    <p><a href="about.html">About Me</a></p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Categories</h3>
+                    <p><a href="recipes.html?category=breakfast">Breakfast</a></p>
+                    <p><a href="recipes.html?category=lunch">Lunch</a></p>
+                    <p><a href="recipes.html?category=dinner">Dinner</a></p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sameena's Kitchen. Made with ❤️ for food lovers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/recipes.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Load recipe details
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const recipeId = urlParams.get('id');
+
+            if (recipeId) {
+                const recipe = getRecipeById(recipeId);
+                renderRecipeDetail(recipe);
+            } else {
+                // No recipe ID provided
+                document.body.innerHTML = '<div class="container" style="padding: 100px 0; text-align: center;"><h1>No Recipe Selected</h1><p>Please select a recipe from the recipes page.</p><a href="recipes.html" class="btn btn-primary">Browse Recipes</a></div>';
+            }
+        });
+    </script>
+</body>
+
+</html>
